@@ -5,14 +5,17 @@ This document describes the technical architecture for the backend system, which
 
 ## Technology Stack
 - **Programming Language:** Java 17+
-- **Framework:** Spring Boot
-- **ORM:** Spring Data JPA (Hibernate)
+- **Framework:** Spring Boot 3.3.x+ LTS
+- **ORM:** Spring Data JPA 3.x+ (Hibernate)
 - **Database:** PostgreSQL
 - **Authentication:** JWT (JSON Web Token)
 - **Validation:** Bean Validation (JSR-380)
 - **API Documentation:** Swagger/OpenAPI
 - **Build Tool:** Gradle or Maven
-- **Other:** Spring Security, Lombok, Testcontainers (for integration testing)
+- **Logging:** SLF4J & Logback
+- **Unit Testing:** JUnit 5 + Mockito
+- **Integration Testing:** SpringBootTest
+- **Other:** Spring Security, Lombok, Testcontainers
 
 ## Layered Architecture
 
