@@ -14,6 +14,7 @@
 - **HTTP 클라이언트:** Axios 또는 Fetch API
 - **폼 처리:** React Hook Form
 - **스키마 검증:** Zod
+- **토스트 알림:** Sonner (애니메이션과 제스처를 지원하는 현대적인 토스트)
 - **서버 상태 관리:** TanStack Query (캐싱, 동기화, 자동 업데이트용)
 - **단위 테스트:** Vitest (모킹, 스냅샷, 코드 커버리지 포함)
 - **E2E 테스트:** Playwright
@@ -80,6 +81,7 @@ graph TD
   - 백엔드로의 HTTP 요청 처리
   - 데이터 가져오기 및 캐싱을 위한 TanStack Query 통합
   - 헤더의 JWT 토큰 관리 및 오류 처리
+  - 사용자 친화적인 에러 알림을 위한 Sonner 활용
 
 - **인증 모듈:**
   - 로그인/로그아웃, 토큰 저장 관리 (localStorage/sessionStorage)
@@ -99,6 +101,7 @@ graph TD
 - **타입 안전성:** 향상된 개발자 경험과 런타임 안전성을 위한 완전한 TypeScript 커버리지
 - **현대적인 빌드 시스템:** 빠른 개발과 최적화된 프로덕션 빌드를 위한 Vite
 - **디자인 시스템:** 일관되고 아름다운 UI를 위한 Tailwind CSS와 shadcn/ui 컴포넌트
+- **현대적인 사용자 경험:** 부드러운 애니메이션과 제스처 지원을 제공하는 Sonner 토스트 알림
 - **스마트 상태 관리:** 
   - 경량 클라이언트 상태를 위한 Zustand
   - 캐싱 및 동기화를 통한 지능적인 서버 상태를 위한 TanStack Query

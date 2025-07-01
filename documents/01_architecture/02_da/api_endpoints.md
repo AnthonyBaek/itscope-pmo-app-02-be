@@ -170,6 +170,16 @@ Authorization: Bearer {accessToken}
 - **Timezone**: UTC
 - **Example**: `2024-01-15T10:30:00Z`
 
+### 에러 로깅 정책
+- **로그 레벨**: 
+  - INFO: 정상 로그인 성공
+  - WARN: 로그인 실패 (401 Unauthorized)
+  - ERROR: 시스템 오류 (500 Internal Server Error)
+- **보안 정보 마스킹**: 
+  - 비밀번호: 완전 마스킹 (*****)
+  - 이메일: 부분 마스킹 (te***@test.com)
+  - JWT 토큰: 앞 10자만 로깅 (eyJhbGciO...)
+
 ---
 
 ## API 호출 흐름

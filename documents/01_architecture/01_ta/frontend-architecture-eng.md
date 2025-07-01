@@ -14,6 +14,7 @@ This document describes the technical architecture for the frontend system, whic
 - **HTTP Client:** Axios or Fetch API
 - **Form Handling:** React Hook Form
 - **Schema Validation:** Zod
+- **Toast Notifications:** Sonner (modern toast with animations and gestures)
 - **Server State Management:** TanStack Query (for caching, synchronization, and automatic updates)
 - **Unit Testing:** Vitest (with mocking, snapshots, and code coverage)
 - **E2E Testing:** Playwright
@@ -80,6 +81,7 @@ graph TD
   - Handles HTTP requests to the backend
   - Integrates with TanStack Query for data fetching and caching
   - Manages JWT token in headers and error handling
+  - Uses Sonner for user-friendly error notifications
 
 - **Auth Module:**
   - Manages login/logout, token storage (localStorage/sessionStorage)
@@ -99,6 +101,7 @@ graph TD
 - **Type Safety:** Full TypeScript coverage for enhanced developer experience and runtime safety
 - **Modern Build System:** Vite for fast development and optimized production builds
 - **Design System:** shadcn/ui components with Tailwind CSS for consistent, beautiful UI
+- **Modern User Experience:** Sonner for elegant toast notifications with smooth animations and gesture support
 - **Smart State Management:** 
   - Zustand for lightweight client state
   - TanStack Query for intelligent server state with caching and synchronization
