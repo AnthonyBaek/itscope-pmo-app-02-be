@@ -1,0 +1,19 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+- 이 프로젝트는 Back-End (B/E) 개발 프로젝트임
+
+- 이 프로젝트에서 개발된 B/E는 연결된 F/E 프로젝트와 공동 개발되어 하나의 서비스를 제공
+
+- 이 프로젝트에서 정의한 roadmap에 따라 체계적으로 점진적 통합을 통해 개발 프로세스가 진행될 예정 (/documents/00_roadmap 내)
+
+- API 문서 등은 B/E 프로젝트에서 정의한 내용에 근거하여 일관성있게 구현
+
+- GitHub Repository: https://github.com/AnthonyBaek/itscope-pmo-app-02-be.git
+
+- 매번 Git 관련 작업 시, Git Log를 ./logs에 날짜 단위로 남김
+   - 최신 로그가 아래쪽으로 오도록 작성
+
+   - 날짜가 넘어갈 경우 새로운 md 파일 생성

@@ -1,0 +1,40 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+1. Folder and File Structure
+
+- All roadmap and progress documents must be located under `documents/00_roadmap/`.
+- Each business logic unit is managed as a **Topic** and must have a folder named in the format:  
+  `topicXX_<name>/` (e.g., `topic01_jwt-authentication/`).
+- Each Topic folder must contain a `topicXX-all.md` file, which provides an overview and the structure of its Phases and Tasks.
+- Each Phase/Task document must be named as:  
+  `topicXX-phaseYY-taskZZ-<short-description>.md`  
+  (e.g., `topic01-phase01-task01-api-design.md`).
+
+2. Hierarchy and Naming Conventions
+
+- The hierarchy is strictly: **Roadmap** → **Topic** → **Phase** → **Task**.
+- Every checklist and test item within a Task file must have a unique ID in the format:  
+  `topic-XX-phase-YY-task-ZZ-BE/FE/INT-##`  
+  (e.g., `01-01-01-BE-01`).
+- When further subdividing a checklist item, use hierarchical numbering:  
+  (e.g., `01-01-01-BE-01-01`, `01-01-01-BE-01-02`, ...).
+
+3. Documentation Principles
+
+- Every Task file must include:
+  - Ordered, uniquely-ID’d checklists for both B/E (Backend) and F/E (Frontend) perspectives
+  - Test analysis sections for B/E, F/E, and integration (BE+FE)
+  - A section describing the method for result verification
+- Checklists must be written in a way that allows for future refinement and further breakdown.
+- All documents should be maintained so that additions, changes, and deletions can be made freely and collaboratively.
+
+#### 4. Management and Synchronization
+
+- Update documentation at the completion of each Topic, Phase, or Task.
+- Assignment of responsible persons and scheduling for each Task should be managed separately (e.g., via an issue tracker).
+- When requirements change, this rule and all related Topic/Phase/Task documents must be updated and kept in sync.
+
+

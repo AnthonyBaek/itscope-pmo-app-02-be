@@ -1,0 +1,51 @@
+openapi: 3.0.3
+info:
+  title: Main Page Data API
+  version: 1.0.0
+  description: JWT 인증 기반 메인 페이지 데이터 조회 API
+paths:
+  /api/main:
+    get:
+      summary: 메인 페이지 데이터 조회
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: 인증 성공, 사용자 정보 반환
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 안녕하세요, test@test.com 님!
+                  user:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: test@test.com
+                      name:
+                        type: string
+                        example: 테스트 사용자
+        '401':
+          description: 인증 실패
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 인증이 필요합니다.
+                  timestamp:
+                    type: string
+                    format: date-time
+                    example: 2024-01-15T10:30:00Z
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT 

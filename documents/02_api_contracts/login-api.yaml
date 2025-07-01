@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Login API
+  version: 1.0.0
+  description: 이메일/비밀번호 기반 JWT 로그인 API
+paths:
+  /api/auth/login:
+    post:
+      summary: 사용자 로그인
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: test@test.com
+                password:
+                  type: string
+                  format: password
+                  example: password123
+      responses:
+        '200':
+          description: 로그인 성공 (JWT 토큰 발급)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                  tokenType:
+                    type: string
+                    example: Bearer
+                  expiresIn:
+                    type: integer
+                    example: 3600
+        '401':
+          description: 인증 실패
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 이메일 또는 비밀번호가 일치하지 않습니다.
+                  timestamp:
+                    type: string
+                    format: date-time
+                    example: 2024-01-15T10:30:00Z 
