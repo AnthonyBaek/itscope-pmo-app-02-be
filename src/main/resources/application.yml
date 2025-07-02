@@ -1,0 +1,169 @@
+# Spring Boot Application Configuration
+spring:
+  application:
+    name: pmo-backend
+  
+  # 프로파일 설정
+  profiles:
+    active: local
+
+# 서버 설정
+server:
+  port: 8080
+
+---
+# Local 개발 환경 설정
+spring:
+  config:
+    activate:
+      on-profile: local
+  
+  # H2 데이터베이스 설정 (개발용)
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  # H2 콘솔 활성화
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  # JPA 설정
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  
+  # CORS 설정
+  web:
+    cors:
+      allowed-origins: "http://localhost:5173"
+      allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+      allowed-headers: "*"
+      allow-credentials: true
+    resources:
+      cache:
+        period: 0
+  
+  # 개발 도구 설정
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+  
+  thymeleaf:
+    cache: false
+
+# JWT 설정
+jwt:
+  secret-key: ${JWT_SECRET_KEY:your-256-bit-secret-your-256-bit-secret-your-256-bit-secret}
+  expiration: 3600 # 1시간 (초 단위)
+
+# Actuator 설정
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+
+# 로깅 설정
+logging:
+  level:
+    com.itscope.pmo: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/pmo-backend-local.log
+    max-size: 10MB
+    max-history: 30
+
+---
+# Development 환경 설정
+spring:
+  config:
+    activate:
+      on-profile: dev
+  
+  # PostgreSQL 데이터베이스 설정 (개발 서버용)
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/pmo_dev_db}
+    username: ${DATABASE_USERNAME:pmo_dev_user}
+    password: ${DATABASE_PASSWORD:pmo_dev_password}
+    driver-class-name: org.postgresql.Driver
+  
+  # JPA 설정
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# JWT 설정
+jwt:
+  secret-key: ${JWT_SECRET_KEY:your-256-bit-secret-your-256-bit-secret-your-256-bit-secret}
+  expiration: 7200 # 2시간 (개발 환경에서 조금 더 길게)
+
+# 로깅 설정 (개발환경)
+logging:
+  level:
+    com.itscope.pmo: DEBUG
+    org.springframework.security: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/pmo-backend-dev.log
+    max-size: 50MB
+    max-history: 7
+
+---
+# Production 환경 설정
+spring:
+  config:
+    activate:
+      on-profile: prod
+  
+  # PostgreSQL 데이터베이스 설정
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/pmo_db}
+    username: ${DATABASE_USERNAME:pmo_user}
+    password: ${DATABASE_PASSWORD:pmo_password}
+    driver-class-name: org.postgresql.Driver
+  
+  # JPA 설정
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# JWT 설정 (운영환경)
+jwt:
+  secret-key: ${JWT_SECRET_KEY}
+  expiration: ${JWT_EXPIRATION:3600}
+
+# 로깅 설정 (운영환경)
+logging:
+  level:
+    com.itscope.pmo: INFO
+    org.springframework.security: WARN
+  file:
+    name: logs/pmo-backend.log 

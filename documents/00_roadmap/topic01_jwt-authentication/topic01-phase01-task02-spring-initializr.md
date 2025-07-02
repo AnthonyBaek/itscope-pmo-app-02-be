@@ -10,11 +10,97 @@
 ## 체크리스트
 
 ### 백엔드(B/E)
-1. [ ] **01-01-02-BE-01**: Spring Initializr에서 프로젝트 생성 (Gradle/Maven, Java 17+)
-2. [ ] **01-01-02-BE-02**: 필수 의존성(JPA, Security, Web, Validation, PostgreSQL, JWT 등) 추가
-3. [ ] **01-01-02-BE-03**: 기본 패키지 구조 설계 및 생성
-4. [ ] **01-01-02-BE-04**: application.yml 기본 환경설정 작성
-5. [ ] **01-01-02-BE-05**: 프로젝트 빌드 및 실행 확인
+1. [x] **01-01-02-BE-01**: Spring Initializr에서 프로젝트 생성 (Gradle/Maven, Java 17+)
+   - [x] **01-01-02-BE-01-01**: **Spring Initializr 설정** (https://start.spring.io/)
+     - [x] **01-01-02-BE-01-01-01**: 프로젝트 메타데이터 설정 (Group: com.itscope, Artifact: pmo-be)
+     - [x] **01-01-02-BE-01-01-02**: Java 버전 선택 (Java 17 LTS)
+     - [x] **01-01-02-BE-01-01-03**: 빌드 도구 선택 (Gradle - Groovy)
+     - [x] **01-01-02-BE-01-01-04**: Spring Boot 버전 선택 (3.3.13 최신 안정 버전)
+   - [x] **01-01-02-BE-01-02**: **프로젝트 다운로드 및 압축 해제**
+     - [x] **01-01-02-BE-01-02-01**: 생성된 프로젝트 zip 파일 다운로드
+     - [x] **01-01-02-BE-01-02-02**: 프로젝트 압축 해제 및 위치 확인
+     - [x] **01-01-02-BE-01-02-03**: IDE (IntelliJ IDEA/Eclipse) 프로젝트 import
+
+2. [x] **01-01-02-BE-02**: 필수 의존성(JPA, Security, Web, Validation, PostgreSQL, JWT 등) 추가
+   - [x] **01-01-02-BE-02-01**: **핵심 Spring 의존성**
+     - [x] **01-01-02-BE-02-01-01**: Spring Web (spring-boot-starter-web)
+     - [x] **01-01-02-BE-02-01-02**: Spring Data JPA (spring-boot-starter-data-jpa)
+     - [x] **01-01-02-BE-02-01-03**: Spring Security (spring-boot-starter-security)
+     - [x] **01-01-02-BE-02-01-04**: Spring Validation (spring-boot-starter-validation)
+   - [x] **01-01-02-BE-02-02**: **데이터베이스 관련 의존성**
+     - [x] **01-01-02-BE-02-02-01**: PostgreSQL Driver (postgresql)
+     - [x] **01-01-02-BE-02-02-02**: H2 Database (h2) - 개발용
+     - [x] **01-01-02-BE-02-02-03**: HikariCP Connection Pool (기본 포함 확인)
+   - [x] **01-01-02-BE-02-03**: **JWT 및 보안 관련 의존성**
+     - [x] **01-01-02-BE-02-03-01**: JWT 라이브러리 (jjwt-api, jjwt-impl, jjwt-jackson)
+     - [x] **01-01-02-BE-02-03-02**: Spring Security JWT 확장 (spring-security-oauth2-jose)
+   - [x] **01-01-02-BE-02-04**: **개발 도구 및 유틸리티**
+     - [x] **01-01-02-BE-02-04-01**: Spring Boot DevTools (spring-boot-devtools)
+     - [x] **01-01-02-BE-02-04-02**: Lombok (lombok)
+     - [x] **01-01-02-BE-02-04-03**: MapStruct (mapstruct, mapstruct-processor)
+   - [x] **01-01-02-BE-02-05**: **테스트 의존성**
+     - [x] **01-01-02-BE-02-05-01**: Spring Boot Test Starter (spring-boot-starter-test)
+     - [x] **01-01-02-BE-02-05-02**: Spring Security Test (spring-security-test)
+     - [x] **01-01-02-BE-02-05-03**: Testcontainers (testcontainers-postgresql) - 통합 테스트용
+
+3. [x] **01-01-02-BE-03**: 기본 패키지 구조 설계 및 생성
+   - [x] **01-01-02-BE-03-01**: **루트 패키지 구조 생성**
+     - [x] **01-01-02-BE-03-01-01**: 메인 애플리케이션 클래스 위치 확인 (com.itscope.pmo.PmoApplication)
+     - [x] **01-01-02-BE-03-01-02**: 기본 패키지 네이밍 컨벤션 정의
+   - [x] **01-01-02-BE-03-02**: **도메인별 패키지 구조 생성**
+     - [x] **01-01-02-BE-03-02-01**: 인증 도메인 (com.itscope.pmo.domain.auth)
+     - [x] **01-01-02-BE-03-02-02**: 사용자 도메인 (com.itscope.pmo.domain.user)
+     - [x] **01-01-02-BE-03-02-03**: 공통 도메인 (com.itscope.pmo.domain.common)
+   - [x] **01-01-02-BE-03-03**: **계층별 패키지 구조 생성**
+     - [x] **01-01-02-BE-03-03-01**: 컨트롤러 패키지 (com.itscope.pmo.controller)
+     - [x] **01-01-02-BE-03-03-02**: 서비스 패키지 (com.itscope.pmo.service)
+     - [x] **01-01-02-BE-03-03-03**: 리포지토리 패키지 (com.itscope.pmo.repository)
+     - [x] **01-01-02-BE-03-03-04**: DTO 패키지 (com.itscope.pmo.dto)
+   - [x] **01-01-02-BE-03-04**: **설정 및 유틸리티 패키지 생성**
+     - [x] **01-01-02-BE-03-04-01**: 설정 패키지 (com.itscope.pmo.config)
+     - [x] **01-01-02-BE-03-04-02**: 보안 패키지 (com.itscope.pmo.security)
+     - [x] **01-01-02-BE-03-04-03**: 예외 처리 패키지 (com.itscope.pmo.exception)
+     - [x] **01-01-02-BE-03-04-04**: 유틸리티 패키지 (com.itscope.pmo.util)
+
+4. [x] **01-01-02-BE-04**: `application.yml` 기본 환경설정 작성
+   - [x] **01-01-02-BE-04-01**: **기본 애플리케이션 설정**
+     - [x] **01-01-02-BE-04-01-01**: 서버 포트 설정 (8080)
+     - [x] **01-01-02-BE-04-01-02**: 애플리케이션 이름 설정 (pmo-backend)
+     - [x] **01-01-02-BE-04-01-03**: 프로파일 설정 (local, dev, prod)
+   - [x] **01-01-02-BE-04-02**: **데이터베이스 설정**
+     - [x] **01-01-02-BE-04-02-01**: H2 개발용 DB 설정 (spring.datasource.h2)
+     - [x] **01-01-02-BE-04-02-02**: PostgreSQL 운영용 DB 설정 (spring.datasource.postgresql)
+     - [x] **01-01-02-BE-04-02-03**: JPA/Hibernate 설정 (spring.jpa)
+     - [x] **01-01-02-BE-04-02-04**: DDL 설정 (ddl-auto: create-drop for dev)
+   - [x] **01-01-02-BE-04-03**: **보안 및 JWT 설정**
+     - [x] **01-01-02-BE-04-03-01**: JWT 비밀키 환경변수 설정 (jwt.secret-key)
+     - [x] **01-01-02-BE-04-03-02**: JWT 만료시간 설정 (jwt.expiration: 3600)
+     - [x] **01-01-02-BE-04-03-03**: CORS 설정 (spring.web.cors)
+   - [x] **01-01-02-BE-04-04**: **로깅 설정**
+     - [x] **01-01-02-BE-04-04-01**: 로그 레벨 설정 (logging.level)
+     - [x] **01-01-02-BE-04-04-02**: 로그 패턴 설정 (logging.pattern)
+     - [x] **01-01-02-BE-04-04-03**: 로그 파일 설정 (logging.file)
+   - [x] **01-01-02-BE-04-05**: **개발 도구 설정**
+     - [x] **01-01-02-BE-04-05-01**: DevTools 설정 (spring.devtools)
+     - [x] **01-01-02-BE-04-05-02**: 캐시 비활성화 설정 (개발 환경)
+
+5. [x] **01-01-02-BE-05**: 프로젝트 빌드 및 실행 확인
+   - [x] **01-01-02-BE-05-01**: **Gradle 빌드 테스트**
+     - [x] **01-01-02-BE-05-01-01**: `./gradlew clean` 실행 확인
+     - [x] **01-01-02-BE-05-01-02**: `./gradlew build` 실행 확인 (테스트 포함)
+     - [x] **01-01-02-BE-05-01-03**: 빌드 아티팩트 생성 확인 (pmo-be-0.0.1-SNAPSHOT.jar)
+   - [x] **01-01-02-BE-05-02**: **애플리케이션 실행 테스트**
+     - [x] **01-01-02-BE-05-02-01**: 백그라운드에서 애플리케이션 실행 확인
+     - [x] **01-01-02-BE-05-02-02**: `./gradlew bootRun` 명령어 실행 확인
+     - [x] **01-01-02-BE-05-02-03**: Spring Boot 애플리케이션 정상 기동 확인 (5.2초 시작)
+   - [x] **01-01-02-BE-05-03**: **기본 엔드포인트 접근 확인**
+     - [x] **01-01-02-BE-05-03-01**: http://localhost:8080 접근 확인 (401 Unauthorized)
+     - [x] **01-01-02-BE-05-03-02**: Spring Security 정상 작동 확인 (기본 패스워드 생성됨)
+     - [x] **01-01-02-BE-05-03-03**: Actuator 헬스체크 엔드포인트 보호 확인
+   - [x] **01-01-02-BE-05-04**: **환경별 프로파일 테스트**
+     - [x] **01-01-02-BE-05-04-01**: local 프로파일로 실행 확인
+     - [x] **01-01-02-BE-05-04-02**: H2 콘솔 활성화 확인 (/h2-console 경로)
+     - [x] **01-01-02-BE-05-04-03**: H2 데이터베이스 연결 확인 (jdbc:h2:mem:testdb)
 
 ### 프론트엔드(F/E)
 1. [ ] **01-01-02-FE-01**: React + TypeScript + Vite 프로젝트 생성
